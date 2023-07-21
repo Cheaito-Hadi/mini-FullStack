@@ -32,7 +32,29 @@ pages.page_register = () => {
 }
 
 pages.page_login = () => {
-    console.log("Hello world Login")
+    const login_btn = document.getElementById("login-btn")
+    login_btn.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+
+
+        let formdata = new FormData();
+        formdata.append("email", email);
+        formdata.append("password", password);
+
+        let requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost/mini-FullStack/Back-end/login.php", requestOptions)
+            .then(response => console.log(response.json()))
+            .catch(error => console.log(error))
+
+    })
 }
 
 pages.loadFor = (page) => {
