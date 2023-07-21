@@ -2,6 +2,7 @@ const pages = {}
 
 pages.page_register = () => {
     const reg_btn = document.getElementById("register_btn")
+
     reg_btn.addEventListener('click', (e) => {
         e.preventDefault()
 
@@ -24,7 +25,7 @@ pages.page_register = () => {
             redirect: 'follow'
         };
 
-        fetch("https://localhost/mini-FullStack/Back-end/register.php", requestOptions)
+        fetch("http://localhost/mini-FullStack/Back-end/register.php", requestOptions)
             .then(response => console.log(response.json()))
             .catch(error => console.log(error))
 
@@ -50,7 +51,7 @@ pages.page_login = () => {
             redirect: 'follow'
         };
 
-        fetch("https://localhost/mini-FullStack/Back-end/login.php", requestOptions)
+        fetch("http://localhost/mini-FullStack/Back-end/login.php", requestOptions)
             .then(response => console.log(response.json()))
             .catch(error => console.log(error))
 
