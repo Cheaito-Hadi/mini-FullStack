@@ -21,6 +21,7 @@ if ($num_rows == 0) {
         $response['status'] = 'logged in';
         $response['id'] = $id;
         $response['first_name'] = $first_name;
+        $response['last_name'] = $last_name;
         $response['email'] = $email;
     } else {
         $response['status'] = "wrong password";

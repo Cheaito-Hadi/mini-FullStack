@@ -52,14 +52,24 @@ pages.page_login = () => {
         };
 
         fetch("http://localhost/mini-FullStack/Back-end/login.php", requestOptions)
-            .then(response => console.log(response.json()))
-            .catch(error => console.log(error))
-
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == 'logged in'){
+                let first_name = data.first_name
+                let last_name = data.last_name
+                localStorage.setItem('firstname',first_name)
+                localStorage.setItem('lastname', last_name)
+                window.location.replace('../Front-end/dashboard.html')
+            }
+        })
+        .catch(error => console.log(error))
     })
 }
 
 pages.page_dashboard = () => {
-    
+    let name = localStorage.getItem('firstname')
+    let title = document.getElementById('h2')
+    title.innerText = `Hello ${name}`
 }
 
 pages.loadFor = (page) => {
